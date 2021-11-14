@@ -1,38 +1,78 @@
+html, body, #app, #app>div {
+  width:100%;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container{
+  display: flex; /* or inline-flex */
+  background-image: url("./image/1.png");
+
+  flex:1;
+  height: 100vh
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.C1{
+  flex: 0.05;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.C2{
+  flex: 0.45;
+  height: 100vh;
+}
+.cardBox{
   display: flex;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.C1container{
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.planet{
+  height: 10vh;
+  margin-top: 85vh;
 }
 
-.App-link {
-  color: #61dafb;
+.card{
+  background-image: url("./image/paper.jpg");
+  height: 70vh;
+  width: 30vw;
+  align-items: center;
+}
+.card-body{
+  margin-top: 15%;
+  height: 50vh;
+  width: 25vw;
+
+}
+.C3{
+  flex: 0.5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.machineBack{
+  background-color: transparent;
+  border: none;
+}
+.machine {
+  height: 100vh;
+}
+@media (min-width: 576px){
+  .container {
+    max-width: 100%;
   }
 }
+
+@media (min-width: 768px){
+  .container {
+    max-width: 100%;
+  }
+
+}
+
+
