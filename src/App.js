@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Modal, Button } from 'react-bootstrap';
@@ -8,7 +8,8 @@ import machinePng from './image/machine.png';
 import planet from './image/planet.gif'
 import Cards from './components/card'
 import {getDataModel} from './DataModel';
-
+import {collection, onSnapshot, query} from "firebase/firestore";
+import { db } from './Secrets';
 
 
 function App(){
@@ -19,6 +20,8 @@ function App(){
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
 
     const handleImageClick = () =>{
         setImage(false)

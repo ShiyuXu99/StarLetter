@@ -3,42 +3,26 @@ import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card } from 'react-bootstrap';
 import '../App.css';
-import {getDataModel} from '../DataModel';
-import { initializeApp, getApps } from 'firebase/app';
-import {
-    initializeFirestore, collection, getDocs, query,
-    doc, addDoc, getDoc, onSnapshot, orderBy, limit
-} from "firebase/firestore";
-import { db } from '../Secrets';
+import DataModel from '../DataModel';
+import data from "bootstrap/js/src/dom/data";
+import {collection, onSnapshot, query} from "firebase/firestore";
+import {db} from "../Secrets";
+
 
 
 function Cards(){
-    const dataModel = getDataModel();
-    const [note, setNote] = useState('');
 
 
-    useEffect(()=>{
-        const q = query(collection(db, 'Notes'));
-        onSnapshot(q, (qSnap) => {
-            let newItem = [];
-            qSnap.docs.forEach((docSnap)=>{
-                let item = docSnap.data();
-                item.key = docSnap.id;
-                if(item.key === '1'){
-                    setNote(item);
-                }
-            });
-        });
-    }, []);
+    const dataModel = new DataModel();
 
-
+    const [id, setID] = useState(dataModel.getItem())
     return(
         <div className="card">
             <Card className="text-center">
                 <Card.Body>
                     <Card.Title>Special title treatment</Card.Title>
                     <Card.Text>
-                        {note.text}
+                        {console.log(id)}
                     </Card.Text>
                 </Card.Body>
             </Card>

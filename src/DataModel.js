@@ -4,6 +4,8 @@ import {
     doc, addDoc, getDoc, onSnapshot, orderBy, limit
 } from "firebase/firestore";
 import { db } from './Secrets';
+import {useEffect, useState} from "react";
+import App from "./App";
 
 
 let nextKey = 1;
@@ -11,33 +13,44 @@ function getNextKey() {
     return '' + nextKey++;
 }
 
+function DataModel(){
 
-class DataModel {
+    const [id, setID] = useState('');
+    const [note, setNote] = useState('');
+    const [text, setText] = useState('');
 
 
-    async addItem(item) {
+    useEffect(()=>{
+        const q = query(collection(db, 'Notes'));
+        onSnapshot(q, (qSnap) => {
+            let newItem = [];
+            qSnap.docs.forEach((docSnap)=>{
+                let item = docSnap.data();
+                item.key = docSnap.id;
+                newItem.push(item);
+            });
+            setNote(newItem);
+            console.log(newItem)
+        });
+    }, []);
+
+    async function addItem(item) {
         item.key = getNextKey();
         const collRef = collection(db, 'ListItems');
-        // let element = {
-        //   text: item.text,
-        //   complete: item.complete,
-        //   priorityLevel: item.complete,
-        //   key: item.key
-        // };
         let docRef = await addDoc(collRef, item);
     }
 
-    async getItem() {
-        return 1;
+    this.getItem = async ()=> {
+        let item =  note[0]
+        return item;
     }
+
+    // return{
+    //     getItem: getItem,
+    // };
+
 }
 
+export default DataModel;
 
-let theDataModel;
 
-export function getDataModel() {
-    if (!theDataModel) {
-        theDataModel = new DataModel();
-    }
-    return theDataModel;
-}
