@@ -3,27 +3,46 @@ import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card } from 'react-bootstrap';
 import '../App.css';
-import DataModel from '../DataModel';
-import data from "bootstrap/js/src/dom/data";
-import {collection, onSnapshot, query} from "firebase/firestore";
-import {db} from "../Secrets";
+import {getData, handleUpdate} from '../DataModel';
 
 
+function Cards({instantlyCloseCard}){
+    const [data,setData] = useState([])
 
-function Cards(){
+    useEffect(()=>{
+        getData().then(res=>{
+            if(res.length === 0){
+                let data = {
+                    'header': '嘿嘿',
+                    'text': '已经看完所有的啦',
+                }
+                setData([data]);
+            }
+            else{
+                setData(res)
+                for(let item of res){
+                    handleUpdate(item.id, item)
+                }
+            }
+        })
 
 
-    const dataModel = new DataModel();
+    },[])
 
-    const [id, setID] = useState(dataModel.getItem())
     return(
         <div className="card">
-            <Card className="text-center">
+            <Card>
+                <button className= "cardCloseBtn" onClick={instantlyCloseCard}>X</button>
                 <Card.Body>
-                    <Card.Title>Special title treatment</Card.Title>
-                    <Card.Text>
-                        {console.log(id)}
-                    </Card.Text>
+                        {data.map((item) =>(
+                            <div className= "scrollComponent">
+                            <Card.Title>{item.header}</Card.Title>
+                                <Card.Text>
+                                    {item.text}
+                            </Card.Text>
+                            </div>
+                            )
+                        )}
                 </Card.Body>
             </Card>
 

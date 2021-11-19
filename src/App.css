@@ -1,5 +1,11 @@
+
 html, body, #app, #app>div {
   width:100%;
+  font-size: 20px;
+  font-family: 'Long Cang', cursive;;
+  /*font-family: 'Zhi Mang Xing', cursive;*/
+  /*font-family: 'Ma Shan Zheng', cursive;*/
+  overflow: hidden;
 }
 
 .App {
@@ -18,7 +24,7 @@ html, body, #app, #app>div {
   flex: 0.05;
 }
 .C2{
-  flex: 0.45;
+  flex: 0.5;
   height: 100vh;
 }
 .cardBox{
@@ -32,11 +38,20 @@ html, body, #app, #app>div {
   display: flex;
   height: 100vh;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: flex-end;
+  padding-bottom: 30px;
 }
+
+.buttonContainer{
+  display: flex;
+  height: 10vh;
+  margin-bottom: 30px;
+}
+
 .planet{
   height: 10vh;
-  margin-top: 85vh;
+  /*margin-top: 85vh;*/
 }
 
 .card{
@@ -44,20 +59,63 @@ html, body, #app, #app>div {
   height: 70vh;
   width: 30vw;
   align-items: center;
+  font-family: 'Long Cang', cursive;;
 }
 .card-body{
-  margin-top: 15%;
+  margin-top: 5%;
   height: 50vh;
   width: 25vw;
+}
+
+.modalBack{
+  background-image: url("./image/paper.jpg");
+}
+.transparent-input {
+  background-color:transparent !important;
+  border-color: burlywood;
+}
+.mdcloseBtn{
+  font-size: 30px;
+  margin-left: 90%;
+}
+.mdsubmitBtn{
+  margin-left: 75%;
 
 }
+.transparent-input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: burlywood;
+}
+.transparent-input::-webkit-scrollbar
+{
+  display: none;
+}
+.scrollComponent{
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+.scrollComponent::-webkit-scrollbar
+{
+  display: none;
+}
+
 .C3{
-  flex: 0.5;
+  flex: 0.45;
 }
 
 .machineBack{
   background-color: transparent;
   border: none;
+}
+
+.cardCloseBtn{
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  margin-left: 90%;
+  margin-top: 2%;
 }
 .machine {
   height: 100vh;

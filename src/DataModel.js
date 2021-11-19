@@ -1,56 +1,58 @@
 import { initializeApp, getApps } from 'firebase/app';
 import {
     initializeFirestore, collection, getDocs, query,
-    doc, addDoc, getDoc, onSnapshot, orderBy, limit
+    doc, addDoc, setDoc,getDoc, onSnapshot, orderBy, limit
 } from "firebase/firestore";
 import { db } from './Secrets';
 import {useEffect, useState} from "react";
 import App from "./App";
 
 
-let nextKey = 1;
-function getNextKey() {
-    return '' + nextKey++;
+
+    export async function getData(){
+        const q = query(collection(db, "Notes"));
+        const querySnapshot = await getDocs(q);
+        let data = []
+        querySnapshot.forEach((doc) => {
+            let temp = doc.data();
+            temp['id'] = doc.id;
+            if(!temp.readStatus){
+                data.push(temp);
+            }
+        });
+        return data;
+    }
+
+export async function getPrevData(){
+    const q = query(collection(db, "Notes"));
+    const querySnapshot = await getDocs(q);
+    let data = []
+    querySnapshot.forEach((doc) => {
+        let temp = doc.data();
+        temp['id'] = doc.id;
+        if(temp.readStatus){
+            data.push(temp);
+        }
+    });
+    console.log(data)
+    return data;
 }
 
-function DataModel(){
-
-    const [id, setID] = useState('');
-    const [note, setNote] = useState('');
-    const [text, setText] = useState('');
-
-
-    useEffect(()=>{
-        const q = query(collection(db, 'Notes'));
-        onSnapshot(q, (qSnap) => {
-            let newItem = [];
-            qSnap.docs.forEach((docSnap)=>{
-                let item = docSnap.data();
-                item.key = docSnap.id;
-                newItem.push(item);
-            });
-            setNote(newItem);
-            console.log(newItem)
-        });
-    }, []);
-
-    async function addItem(item) {
-        item.key = getNextKey();
-        const collRef = collection(db, 'ListItems');
+    export async function addItem(item) {
+        const collRef = collection(db, 'Notes');
         let docRef = await addDoc(collRef, item);
     }
 
-    this.getItem = async ()=> {
-        let item =  note[0]
-        return item;
-    }
-
-    // return{
-    //     getItem: getItem,
-    // };
-
+export async function handleUpdate(id, item) {
+    await setDoc(doc(db, "Notes", id), {
+        'header': item.header,
+        'text': item.text,
+        'readStatus': true
+    });
 }
 
-export default DataModel;
+
+
+
 
 
