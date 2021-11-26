@@ -1,8 +1,3 @@
-import { initializeApp, getApps } from 'firebase/app';
-import {
-    initializeFirestore,collection, getDocs, query,
-    doc, addDoc, getDoc, onSnapshot, orderBy, limit
-} from "firebase/firestore";
 const firebaseConfig = {
     apiKey: "AIzaSyAsrXo0XBf8srEnJ3ZdVC2_X9TK4MRb4jQ",
     authDomain: "star-letter-2020.firebaseapp.com",
@@ -12,11 +7,5 @@ const firebaseConfig = {
     appId: "1:755999183317:web:fef717a13e923035832d5c"
 };
 
+export default firebaseConfig
 
-const app = initializeApp(firebaseConfig);
-// if (getApps().length == 0){
-//     app = initializeApp(firebaseConfig);
-// }
-export const db = initializeFirestore(app, {
-    useFetchStreams: false
-});

@@ -1,6 +1,6 @@
 
 html, body, #app, #app>div {
-  width:100%;
+  width: 100%;
   font-size: 20px;
   font-family: 'Long Cang', cursive;;
   /*font-family: 'Zhi Mang Xing', cursive;*/
@@ -12,12 +12,13 @@ html, body, #app, #app>div {
   text-align: center;
 }
 
-.container{
+.contain{
   display: flex; /* or inline-flex */
   background-image: url("./image/1.png");
 
   flex:1;
-  height: 100vh
+  height: 100vh;
+  width:  auto !important;
 }
 
 .C1{
@@ -104,6 +105,11 @@ html, body, #app, #app>div {
 .C3{
   flex: 0.45;
 }
+.C4{
+  flex: 0.05;
+  height: 100vh;
+  align-items: flex-end;
+}
 
 .machineBack{
   background-color: transparent;
@@ -120,17 +126,21 @@ html, body, #app, #app>div {
 .machine {
   height: 100vh;
 }
-@media (min-width: 576px){
-  .container {
-    max-width: 100%;
-  }
+
+.logout{
+  height: 10vh;
 }
 
-@media (min-width: 768px){
-  .container {
-    max-width: 100%;
-  }
-
+.logoutDiv{
+  background-color: transparent;
+  border: none;
 }
+
+
+
+/*.loginInputCell{*/
+/*  background-color: rgba(255, 255, 255, 0.9);*/
+/*  border-color: burlywood;*/
+/*}*/
 
 

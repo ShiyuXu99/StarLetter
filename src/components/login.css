@@ -1,0 +1,44 @@
+.LoginContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'ZCOOL KuaiLe', cursive;
+
+}
+.fields{
+    flex: 0.5;
+    margin-top: 10px;
+}
+.labelInput{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: darkorange;
+}
+
+.inputField{
+    border-radius: 5px;
+    border: none;
+    height: 45px;
+    font-size: 20px;
+}
+
+.buttonDiv{
+    margin-top: 10%;
+    align-items: center;
+}
+
+
+
+.LoginForm {
+    min-width: 600px;
+    min-height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.3);
+    padding-top: 50px;
+    border-radius: 15px;
+}

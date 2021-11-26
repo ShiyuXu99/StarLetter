@@ -10,6 +10,7 @@ function ModalField(props){
     const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
     const [text, setText] = useState('');
     const [header, setHeader] = useState(date);
+    const [name, setName] = useState('')
     let handleSubmit = ()=>{
         if(header === '' || text === ''){
             alert("请写标题和内容哦")
@@ -17,6 +18,7 @@ function ModalField(props){
             let data = {
                 'header': header,
                 'text': text,
+                'name': name,
                 'readStatus': false
             }
             addItem(data);
@@ -42,6 +44,11 @@ function ModalField(props){
             </Button>
             <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>收信人</Form.Label>
+                    <Form.Control type="text"
+                                  className="transparent-input"
+                                  value={name}
+                                  onChange={(e)=>setName(e.target.value)}/>
                     <Form.Label>标题</Form.Label>
                     <Form.Control type="text"
                                   className="transparent-input"
@@ -55,13 +62,10 @@ function ModalField(props){
             </Form>
             <Button variant="btn bg-transparent"  className="mdsubmitBtn" onClick={handleSubmit}>
                 <FaFeatherAlt/> 投送
-
             </Button>
 
         </Modal.Body>
-    {/*<Modal.Footer>*/}
-    {/*    */}
-    {/*</Modal.Footer>*/}
+
         </Modal>
     )
 }
