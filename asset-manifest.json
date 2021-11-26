@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/StarLetter/static/css/main.37b07afc.chunk.css",
-    "main.js": "/StarLetter/static/js/main.d32b4d9b.chunk.js",
-    "main.js.map": "/StarLetter/static/js/main.d32b4d9b.chunk.js.map",
+    "main.js": "/StarLetter/static/js/main.655fb93c.chunk.js",
+    "main.js.map": "/StarLetter/static/js/main.655fb93c.chunk.js.map",
     "runtime-main.js": "/StarLetter/static/js/runtime-main.547e4859.js",
     "runtime-main.js.map": "/StarLetter/static/js/runtime-main.547e4859.js.map",
     "static/css/2.383c0125.chunk.css": "/StarLetter/static/css/2.383c0125.chunk.css",
-    "static/js/2.91f3f422.chunk.js": "/StarLetter/static/js/2.91f3f422.chunk.js",
-    "static/js/2.91f3f422.chunk.js.map": "/StarLetter/static/js/2.91f3f422.chunk.js.map",
+    "static/js/2.85870574.chunk.js": "/StarLetter/static/js/2.85870574.chunk.js",
+    "static/js/2.85870574.chunk.js.map": "/StarLetter/static/js/2.85870574.chunk.js.map",
     "index.html": "/StarLetter/index.html",
     "static/css/2.383c0125.chunk.css.map": "/StarLetter/static/css/2.383c0125.chunk.css.map",
     "static/css/main.37b07afc.chunk.css.map": "/StarLetter/static/css/main.37b07afc.chunk.css.map",
-    "static/js/2.91f3f422.chunk.js.LICENSE.txt": "/StarLetter/static/js/2.91f3f422.chunk.js.LICENSE.txt",
+    "static/js/2.85870574.chunk.js.LICENSE.txt": "/StarLetter/static/js/2.85870574.chunk.js.LICENSE.txt",
     "static/media/App.css": "/StarLetter/static/media/paper.9afd42ed.jpg",
     "static/media/bottle.52f95d91.png": "/StarLetter/static/media/bottle.52f95d91.png",
     "static/media/machine.6b8d0ff1.png": "/StarLetter/static/media/machine.6b8d0ff1.png",
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.547e4859.js",
     "static/css/2.383c0125.chunk.css",
-    "static/js/2.91f3f422.chunk.js",
+    "static/js/2.85870574.chunk.js",
     "static/css/main.37b07afc.chunk.css",
-    "static/js/main.d32b4d9b.chunk.js"
+    "static/js/main.655fb93c.chunk.js"
   ]
 }
