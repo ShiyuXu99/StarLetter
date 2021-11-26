@@ -27,7 +27,7 @@ function LogIn() {
             await login(emailRef.current.value, passwordRef.current.value);
             navigate('/home')
         } catch {
-            alert("Error!");
+            alert("Error Loggin in!");
         }
 
     }
