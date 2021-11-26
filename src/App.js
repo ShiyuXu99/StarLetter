@@ -3,19 +3,19 @@ import './App.css';
 import Card from "./components/card"
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
-import { Route, Routes, Link } from "react-router-dom";
+import { HashRouter,Route, Routes, Link } from "react-router-dom";
 import {BrowserRouter as Router} from "react-router-dom";
 
 
 function App(){
 
     return(
-           <Router>
+           <HashRouter>
                <Routes>
-                   <Route path="/" element={<Login />} />
-                   <Route exact path="/home" element={<HomePage />} />
+                   <Route exact path="/" element={<Login />} />
+                   <Route path="/home" element={<HomePage />} />
                </Routes>
-           </Router>
+           </HashRouter>
     );
 }
 
