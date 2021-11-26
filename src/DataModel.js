@@ -22,11 +22,11 @@ const db = initializeFirestore(app, {
 // }
 
 export async function login(email, password) {
-    try {
+    // try {
         await signInWithEmailAndPassword(auth, email, password);
-    } catch {
-        alert("Error!");
-    }
+    // } catch {
+    //     alert("Error!");
+    // }
 }
 
 // export function login(email, password) {
@@ -42,15 +42,25 @@ export async function logout(){
 }
 
 // Custom Hook
-export function useAuth() {
-    const [ currentUser, setCurrentUser ] = useState();
+// export function useAuth() {
+//     const [ currentUser, setCurrentUser ] = useState();
+//
+//     useEffect(() => {
+//         const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
+//         return unsub;
+//     }, [])
+//
+//     return currentUser;
+// }
 
-    useEffect(() => {
-        const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
-        return unsub;
-    }, [])
-
-    return currentUser;
+export async function isLoggedIn(){
+    await onAuthStateChanged(auth, (user) => {
+        if (user) {
+            return true
+        } else {
+           return false;
+        }
+    });
 }
 
 function getUserName(){

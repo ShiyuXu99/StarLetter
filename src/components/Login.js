@@ -4,11 +4,11 @@ import '../App.css'
 import './login.css'
 import {useNavigate} from 'react-router-dom';
 
-import { signup, login, logout, useAuth } from "../DataModel";
+import { signup, login, logout, isLoggedIn } from "../DataModel";
 
 function LogIn() {
     const [ loading, setLoading ] = useState(false);
-    const currentUser = useAuth();
+    // const currentUser = useAuth();
     const navigate = useNavigate();
 
 
@@ -22,11 +22,13 @@ function LogIn() {
         // } catch {
         //     alert("Error!");
         // }
-        setLoading(false);
-        await login(emailRef.current.value, passwordRef.current.value);
-
-        navigate('/home');
-
+        // setLoading(false);
+        try {
+            await login(emailRef.current.value, passwordRef.current.value);
+            navigate('/home')
+        } catch {
+            alert("Error!");
+        }
 
     }
 
@@ -135,7 +137,7 @@ function LogIn() {
 
 
             <div className="buttonDiv">
-                <button disabled={ loading || currentUser } onClick={handleLogin}>Log In</button>
+                <button onClick={handleLogin}>Log In</button>
                 {/*<button disabled={ loading || !currentUser } onClick={handleLogout}>Log Out</button>*/}
                 {/*<div>Currently logged in as: { currentUser?.email } </div>*/}
             </div>
