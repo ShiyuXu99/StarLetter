@@ -15,10 +15,12 @@ function ModalField(props){
         if(header === '' || text === ''){
             alert("请写标题和内容哦")
         }else{
+            console.log(name)
+            let tempName = name.toLowerCase()
             let data = {
                 'header': header,
                 'text': text,
-                'name': name,
+                'name': tempName,
                 'readStatus': false
             }
             addItem(data);

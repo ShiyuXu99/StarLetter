@@ -102,6 +102,7 @@ export async function handleUpdate(id, item) {
     await setDoc(doc(db, "Notes", id), {
         'header': item.header,
         'text': item.text,
+        'name': item.name,
         'readStatus': true
     });
 }
