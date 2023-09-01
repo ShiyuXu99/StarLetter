@@ -7,10 +7,7 @@ import { HashRouter,Route, Routes, Link } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-      {/*<HashRouter>*/}
           <App />
-      {/*</HashRouter>*/}
-
   </React.StrictMode>,
   document.getElementById('root')
 );

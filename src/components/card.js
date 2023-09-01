@@ -25,8 +25,6 @@ function Cards({instantlyCloseCard}){
                 }
             }
         })
-
-
     },[])
 
     return(

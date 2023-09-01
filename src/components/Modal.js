@@ -7,7 +7,7 @@ import { FaFeatherAlt } from "react-icons/fa";
 function ModalField(props){
 
     const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
+    const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`
     const [text, setText] = useState('');
     const [header, setHeader] = useState(date);
     const [name, setName] = useState('')
@@ -15,7 +15,6 @@ function ModalField(props){
         if(header === '' || text === ''){
             alert("请写标题和内容哦")
         }else{
-            console.log(name)
             let tempName = name.toLowerCase()
             let data = {
                 'header': header,
@@ -65,9 +64,7 @@ function ModalField(props){
             <Button variant="btn bg-transparent"  className="mdsubmitBtn" onClick={handleSubmit}>
                 <FaFeatherAlt/> 投送
             </Button>
-
         </Modal.Body>
-
         </Modal>
     )
 }

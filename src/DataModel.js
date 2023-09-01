@@ -5,7 +5,6 @@ import {
     doc, addDoc, setDoc, getDoc, where
 } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
-
 import firebaseConfig from "./Secrets"
 
 
@@ -37,21 +36,10 @@ export async function logout(){
     try {
         await signOut(auth)
     } catch {
-        alert("Error!");
+        alert("Error logging out!");
     }
 }
 
-// Custom Hook
-// export function useAuth() {
-//     const [ currentUser, setCurrentUser ] = useState();
-//
-//     useEffect(() => {
-//         const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
-//         return unsub;
-//     }, [])
-//
-//     return currentUser;
-// }
 
 export async function isLoggedIn(){
     await onAuthStateChanged(auth, (user) => {
@@ -99,7 +87,6 @@ export async function getPrevData() {
             data.push(temp);
         }
     });
-    console.log(data)
     return data;
 }
 

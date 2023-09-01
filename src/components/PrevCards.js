@@ -20,7 +20,6 @@ export function CardList({data,setShowList, handleOpenItem,setItem}){
                 <Card.Body>
                     {data.map((item) =>(
                             <div>
-                                {/*<Card.Title>{item.header}</Card.Title>*/}
                                 <Card.Text>
                                     <button
                                         className="machineBack"
